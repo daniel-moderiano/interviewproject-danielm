@@ -8,7 +8,7 @@ This task involves setting up an Apache web server on CentOS to serve a simple "
 
 There are two related directories to this task
 
-- `centos-server` contains bash commands that were executed to setup the CentOS server from start to finish. These can be replicated in full to produce a running server.
+- `centos-server` contains bash commands that were executed to setup the CentOS server from start to finish. Please note the `.sh` extension used for `setup.sh` was chosen to help readability and formatting - this file is not intended to be executed directly.
 - `hello-world-app` contains the files for the django project served by the CentOS-Apache web server.
 
 ### Task Two
