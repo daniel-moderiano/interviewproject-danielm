@@ -16,7 +16,7 @@ sudo yum update
 
 # In this case we aren't using the root user, but have a pre-created "centos" user. The security group acts as a firewall, and the instance has already been setup with SSH for the centos user. Additional config is overkill for this test project. 
 
-# Install the nano editor to make life easier down the line
+# Install the nano editor to make life easier down the line.
 
 sudo yum install nano
 
@@ -43,7 +43,7 @@ tar -xvf Python-3.10.8.tgz
 
 cd Python-3.10.8
 
-# Configure Python and run the build process. Do not forget the config args - without these it can cause a massive headache later
+# Configure Python and run the build process. Do not forget the config args - without these it can cause a massive headache later.
 
 sudo ./configure --enable-optimizations --enable-shared --enable-loadable-sqlite-extensions
 sudo make install
@@ -63,7 +63,7 @@ source ~/.bash_profile
 
 echo $PATH
 
-# If getting errors regarding missing lib directories, add /usr/local/lib/ to the library search path
+# If getting errors regarding missing lib directories, add /usr/local/lib/ to the library search path. The following commands were required for mod_wsgi to identify the correct location of certain Python libs.
 
 export LD_LIBRARY_PATH=/lib:/usr/lib:/usr/local/lib
 
@@ -138,13 +138,13 @@ pip install mod_wsgi
 
 mod_wsgi-express start-server django_project/wsgi.py
 
-# You should now be able to access the Hello World webpage via the instance IP on port 8000 (this can be done via public IP because of the way I've set the instance up, or you could deploy an instance in a private subnet to allow local network access only)
+# You should now be able to access the Hello World webpage via the instance IP on port 8000 (note: this is only possible if your instance is configured in a public subnet; deploy an instance in a private subnet to allow local network access only)
 
 # To run on a privileged port like 80, you must run as root, however you must configure to drop permissions to a different user after starting the server, e.g. for a centos user
 
 sudo /home/centos/hello-world-app/.venv/bin/mod_wsgi-express start-server django_project/wsgi.py --port=80 --user centos --group centos
 
-# If there is an error saying that port 80 is already in use, stop the running "non-python" Apache server, and re-reun the mod_wsgi command
+# If there is an error saying that port 80 is already in use, the system Apache server is likely running. Stop this, and restart mod_wsgi-express to allow the Python env Apache server to take priority. 
 
 sudo systemctl stop httpd
 
