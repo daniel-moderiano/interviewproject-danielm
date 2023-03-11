@@ -1,6 +1,6 @@
 from django.urls import path
-from people.views import person_list
+from people.views import PersonListCreate
 
 urlpatterns = [
-    path('api/people/', person_list),
+    path('api/people/', PersonListCreate.as_view()),
 ]

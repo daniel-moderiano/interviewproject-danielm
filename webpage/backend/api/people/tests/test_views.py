@@ -1,7 +1,7 @@
 from django.test import TestCase
 from people.models import Person
 
-class PersonListViewTest(TestCase):
+class PersonListCreateTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         # Create multiple people to test retrieval of list of people
