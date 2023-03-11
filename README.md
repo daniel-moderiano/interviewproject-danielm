@@ -15,7 +15,19 @@ There are two related directories to this task
 
 This task involves creating a webpage that uses a Django REST API backend, and a React frontend.
 
-_Directory structure not planned out yet_
+The directory structure is planned as follows:
+
+```
+.
+└── webpage/
+    ├── backend/
+    │   └── api/
+    └── frontend/
+
+```
+
+- `backend` will contain all the Django REST Framework related code for constructing the backend API.
+- `frontend` will contain all of the React code related to the client UI.
 
 ### Task Three
 
