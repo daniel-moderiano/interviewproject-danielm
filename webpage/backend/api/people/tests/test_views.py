@@ -1,9 +1,7 @@
 from django.test import TestCase
-from django.urls import reverse
-
 from people.models import Person
 
-class AuthorListViewTest(TestCase):
+class PersonListViewTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         # Create multiple people to test retrieval of list of people
@@ -21,3 +19,23 @@ class AuthorListViewTest(TestCase):
     def test_view_url_exists_at_desired_location(self):
         response = self.client.get('/api/people/')
         self.assertEqual(response.status_code, 200)
+    
+    def test_lists_all_people(self):
+        response = self.client.get('/api/people/')
+        self.assertEqual(response.status_code, 200)
+        # We are returning JSON responses with our API, hence we use a json method here
+        self.assertEqual(len(response.json()), 4)
+
+    def test_adds_a_person(self):
+        response = self.client.post(
+            '/api/people/', 
+            {
+            'first_name': 'Jane',
+            'last_name': 'Doe',
+            'email': "john@gmail.com",
+            'age': 24,
+            'income': 50000
+            }, 
+            content_type='application/json'
+        )
+        self.assertEqual(response.status_code, 201)

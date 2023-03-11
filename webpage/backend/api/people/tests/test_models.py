@@ -2,7 +2,7 @@ from django.test import TestCase
 from people.models import Person
 
 # Create your tests here.
-class YourTestClass(TestCase):
+class PersonModelTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         Person.objects.create(
