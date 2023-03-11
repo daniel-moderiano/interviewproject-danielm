@@ -11,7 +11,7 @@ class PersonListViewTest(TestCase):
             Person.objects.create(
                 first_name=f'John {person_id}',
                 last_name=f'Doe {person_id}',
-                email="john@gmail.com",
+                email=f'john{person_id}@gmail.com',
                 age=24,
                 income=50000
             )
@@ -32,7 +32,7 @@ class PersonListViewTest(TestCase):
             {
             'first_name': 'Jane',
             'last_name': 'Doe',
-            'email': "john@gmail.com",
+            'email': "jane@gmail.com",
             'age': 24,
             'income': 50000
             }, 

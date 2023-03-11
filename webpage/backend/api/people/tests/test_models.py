@@ -1,5 +1,6 @@
 from django.test import TestCase
 from people.models import Person
+from django.db.utils import IntegrityError
 
 # Create your tests here.
 class PersonModelTest(TestCase):
@@ -27,3 +28,17 @@ class PersonModelTest(TestCase):
         person = Person.objects.get(id=1)
         expected_object_name = f'{person.first_name} {person.last_name}'
         self.assertEqual(str(person), expected_object_name)
+
+    def test_users_cannot_share_the_same_email(self):
+        try:
+          # Attempt to create a second user with the same email as above
+          Person.objects.create(
+              first_name="John",
+              last_name="Doe",
+              email="john@gmail.com",
+              age=24,
+              income=50000
+          )
+          self.fail("Duplicate email was allowed to be used")
+        except IntegrityError:
+          pass
