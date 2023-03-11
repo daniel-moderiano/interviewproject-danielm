@@ -15,6 +15,7 @@ import os
 from dotenv import load_dotenv
 import pymysql 
 
+# PyMySQL is used as an alternative to MySQLClient, which installs successfully but fails with errors whenever Django attmepts to interface with MySQL. 
 pymysql.install_as_MySQLdb()
 load_dotenv()
 
