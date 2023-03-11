@@ -6,3 +6,6 @@ class Person(models.Model):
     email = models.EmailField()
     age = models.PositiveIntegerField()
     income = models.PositiveIntegerField()
+
+    def __str__(self):
+        return f'{self.first_name} {self.last_name}'
