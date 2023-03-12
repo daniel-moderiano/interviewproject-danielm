@@ -1,3 +1,28 @@
 hello-world-app/.venv
 webpage/backend/.venv
 webpage/backend/.env
+
+# Logs
+webpage/frontend/logs
+webpage/frontend/*.log
+webpage/frontend/npm-debug.log*
+webpage/frontend/yarn-debug.log*
+webpage/frontend/yarn-error.log*
+webpage/frontend/pnpm-debug.log*
+webpage/frontend/lerna-debug.log*
+
+webpage/frontend/node_modules
+webpage/frontend/dist
+webpage/frontend/dist-ssr
+webpage/frontend/*.local
+
+# Editor directories and files
+webpage/frontend/.vscode/*
+webpage/frontend/!.vscode/extensions.json
+webpage/frontend/.idea
+webpage/frontend/.DS_Store
+webpage/frontend/*.suo
+webpage/frontend/*.ntvs*
+webpage/frontend/*.njsproj
+webpage/frontend/*.sln
+webpage/frontend/*.sw?
