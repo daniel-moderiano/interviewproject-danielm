@@ -1,17 +1,24 @@
-import { useState } from "react";
-import Button from "@mui/material/Button";
+import { useGetAllPeopleQuery } from "./services/backendApi";
+import { Person } from "./types";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const { data, error, isLoading } = useGetAllPeopleQuery();
 
   return (
     <div className="App">
-      <Button
-        variant="contained"
-        onClick={() => setCount((count) => count + 1)}
-      >
-        {count}
-      </Button>
+      {error ? (
+        <div>Oh no, there was an error</div>
+      ) : isLoading ? (
+        <div>Loading...</div>
+      ) : data ? (
+        <div>
+          {data.map((person: Person) => (
+            <h3 key={person.email}>
+              {person.first_name} {person.last_name}
+            </h3>
+          ))}
+        </div>
+      ) : null}
     </div>
   );
 }
