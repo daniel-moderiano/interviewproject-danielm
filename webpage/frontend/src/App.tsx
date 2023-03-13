@@ -1,5 +1,7 @@
 import Form from "./components/Form";
 import Table from "./components/Table";
+import Typography from "@mui/material/Typography";
+import "./styles/App.css";
 
 const dummyData = [
   {
@@ -35,8 +37,20 @@ const dummyData = [
 function App() {
   return (
     <div className="App">
-      <Table people={dummyData} />
-      <Form />
+      <header className="header">
+        <Typography variant="h2" component="h1">
+          Header
+        </Typography>
+      </header>
+      <main className="main">
+        <Form />
+        <Table people={dummyData} />
+      </main>
+      <footer className="footer">
+        <Typography variant="subtitle1" component="p">
+          &copy; Daniel Moderiano 2023
+        </Typography>
+      </footer>
     </div>
   );
 }
