@@ -1,3 +1,4 @@
+import Form from "./components/Form";
 import Table from "./components/Table";
 
 const dummyData = [
@@ -35,6 +36,7 @@ function App() {
   return (
     <div className="App">
       <Table people={dummyData} />
+      <Form />
     </div>
   );
 }
