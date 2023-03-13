@@ -5,3 +5,11 @@ export type Person = {
   age: number;
   income: number;
 };
+
+export type PersonFormData = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  age: number | string;
+  income: number | string;
+};

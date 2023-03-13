@@ -39,3 +39,17 @@ class PersonListCreateTest(TestCase):
             content_type='application/json'
         )
         self.assertEqual(response.status_code, 201)
+
+    def test_handles_camel_case(self):
+        response = self.client.post(
+            '/api/people/', 
+            {
+            'firstName': 'Jim',
+            'lastName': 'Doe',
+            'email': "jim@gmail.com",
+            'age': 24,
+            'income': 50000
+            }, 
+            content_type='application/json'
+        )
+        self.assertEqual(response.status_code, 201)
