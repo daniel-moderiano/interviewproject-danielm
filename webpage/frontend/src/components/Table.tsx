@@ -1,40 +1,57 @@
 import MaterialTable from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+import { styled } from "@mui/material/styles";
 import { Person } from "../types";
 
 type TableProps = {
   people: Person[];
 };
 
+const StyledTableCell = styled(TableCell)(() => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: "#d6d6d6",
+    fontSize: 15,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  "&:nth-of-type(even)": {
+    backgroundColor: theme.palette.action.hover,
+  },
+  "&:last-child td, &:last-child th": {
+    border: 0,
+  },
+}));
+
 const Table = ({ people }: TableProps) => {
   return (
     <TableContainer>
-      <MaterialTable sx={{ minWidth: 650 }} aria-label="simple table">
+      <MaterialTable>
         <TableHead>
           <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell align="right">Age</TableCell>
-            <TableCell align="right">Email</TableCell>
-            <TableCell align="right">Income</TableCell>
+            <StyledTableCell>Name</StyledTableCell>
+            <StyledTableCell align="left">Age</StyledTableCell>
+            <StyledTableCell align="left">Email</StyledTableCell>
+            <StyledTableCell align="left">Income</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {people.map((person) => (
-            <TableRow
-              key={person.email}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell>
+            <StyledTableRow key={person.email}>
+              <StyledTableCell>
                 {person.first_name} {person.last_name}
-              </TableCell>
-              <TableCell align="right">{person.age}</TableCell>
-              <TableCell align="right">{person.email}</TableCell>
-              <TableCell align="right">${person.income}</TableCell>
-            </TableRow>
+              </StyledTableCell>
+              <StyledTableCell align="left">{person.age}</StyledTableCell>
+              <StyledTableCell align="left">{person.email}</StyledTableCell>
+              <StyledTableCell align="left">${person.income}</StyledTableCell>
+            </StyledTableRow>
           ))}
         </TableBody>
       </MaterialTable>
