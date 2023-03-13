@@ -28,7 +28,7 @@ const Table = ({ people }: TableProps) => {
               key={person.email}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
-              <TableCell component="th" scope="row">
+              <TableCell>
                 {person.first_name} {person.last_name}
               </TableCell>
               <TableCell align="right">{person.age}</TableCell>
