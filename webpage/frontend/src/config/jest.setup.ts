@@ -1,7 +1,7 @@
 // Require polyfill as fetch is not available by default in jsdom environment
 import "whatwg-fetch";
 
-import { server } from "./src/mocks/server";
+import { server } from "../mocks/server";
 // Establish API mocking before all tests.
 beforeAll(() => server.listen());
 

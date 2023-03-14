@@ -15,4 +15,8 @@ export const handlers = [
   rest.get("http://127.0.0.1:8000/api/people/", (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(mockPeopleData));
   }),
+
+  rest.post("http://127.0.0.1:8000/api/people/", (req, res, ctx) => {
+    return res(ctx.status(201));
+  }),
 ];

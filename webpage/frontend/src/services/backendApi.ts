@@ -1,8 +1,6 @@
-// Need to use the React-specific entry point to import createApi
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { Person } from "../types";
 
-// Define a service using a base URL and expected endpoints
 export const backendApi = createApi({
   reducerPath: "backendApi",
   baseQuery: fetchBaseQuery({ baseUrl: "http://127.0.0.1:8000/api/" }),
@@ -10,6 +8,7 @@ export const backendApi = createApi({
   endpoints: (build) => ({
     getAllPeople: build.query<Person[], void>({
       query: () => "people/",
+      // Ensures that the query is re-run when the API cache invalidates
       providesTags: () => [{ type: "People" }],
     }),
     addPerson: build.mutation({
@@ -18,6 +17,7 @@ export const backendApi = createApi({
         method: "POST",
         body,
       }),
+      // Required to involidate the API cache on successful mutation
       invalidatesTags: ["People"],
     }),
   }),

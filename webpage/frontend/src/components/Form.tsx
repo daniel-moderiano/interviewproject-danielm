@@ -38,6 +38,7 @@ const Form = (props: React.FormHTMLAttributes<HTMLFormElement>) => {
     event.preventDefault();
 
     try {
+      // Call unwrap() to allow error catching at this point, or else the call will be treated as successful
       await addPerson(formData).unwrap();
 
       setFormData({

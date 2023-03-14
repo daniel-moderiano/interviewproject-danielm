@@ -5,9 +5,9 @@
   "testEnvironment": "jsdom",
   "setupFilesAfterEnv": [
     "@testing-library/jest-dom/extend-expect",
-    "./jest.setup.ts"
+    "<rootDir>/src/config/jest.setup.ts"
   ],
   "moduleNameMapper": {
-    "^.+\\.(css|less)$": "<rootDir>/src/config/CSSStub.js"
+    "^.+\\.(css|less)$": "<rootDir>/src/config/CSSStub.ts"
   }
 }
