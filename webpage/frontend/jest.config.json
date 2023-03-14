@@ -1,0 +1,13 @@
+{
+  "transform": {
+    "^.+\\.tsx?$": "ts-jest"
+  },
+  "testEnvironment": "jsdom",
+  "setupFilesAfterEnv": [
+    "@testing-library/jest-dom/extend-expect",
+    "<rootDir>/src/config/jest.setup.ts"
+  ],
+  "moduleNameMapper": {
+    "^.+\\.(css|less)$": "<rootDir>/src/config/CSSStub.ts"
+  }
+}

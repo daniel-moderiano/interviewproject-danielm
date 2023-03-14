@@ -1,0 +1,21 @@
+.formContainer {
+  padding: 2rem 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 6px;
+}
+
+.form {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: start;
+  row-gap: 2rem;
+}
+
+@media (min-width: 900px) {
+  .formContainer {
+    padding: 2rem;
+    min-width: 470px;
+  }
+}
