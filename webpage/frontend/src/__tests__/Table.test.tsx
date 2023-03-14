@@ -3,8 +3,8 @@ import { render, screen } from "@testing-library/react";
 
 const dummyData = [
   {
-    first_name: "Dennis",
-    last_name: "Reynolds",
+    firstName: "Dennis",
+    lastName: "Reynolds",
     email: "dennis@paddys.com",
     age: 40,
     income: 30000,

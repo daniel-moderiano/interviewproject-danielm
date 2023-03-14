@@ -54,7 +54,7 @@ const Table = ({ people }: TableProps) => {
           {people.map((person) => (
             <StyledTableRow key={person.email}>
               <StyledTableCell>
-                {person.first_name} {person.last_name}
+                {person.firstName} {person.lastName}
               </StyledTableCell>
               <StyledTableCell align="left">{person.age}</StyledTableCell>
               <StyledTableCell align="left">{person.email}</StyledTableCell>

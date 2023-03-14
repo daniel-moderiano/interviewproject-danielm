@@ -4,7 +4,7 @@ import TextField from "@mui/material/TextField";
 import "../styles/Form.css";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
-import { PersonFormData } from "../types";
+import { Person } from "../types";
 
 const StyledButton = styled(Button)(({ theme }) => ({
   [theme.breakpoints.up("sm")]: {
@@ -16,7 +16,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
 }));
 
 const Form = (props: React.FormHTMLAttributes<HTMLFormElement>) => {
-  const [formData, setFormData] = React.useState<PersonFormData>({
+  const [formData, setFormData] = React.useState<Person>({
     firstName: "",
     lastName: "",
     email: "",

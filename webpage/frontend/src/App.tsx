@@ -5,29 +5,29 @@ import "./styles/App.css";
 
 const dummyData = [
   {
-    first_name: "Dennis",
-    last_name: "Reynolds",
+    firstName: "Dennis",
+    lastName: "Reynolds",
     email: "dennis@paddys.com",
     age: 40,
     income: 30000,
   },
   {
-    first_name: "Deandra",
-    last_name: "Reynolds",
+    firstName: "Deandra",
+    lastName: "Reynolds",
     email: "dee@paddys.com",
     age: 38,
     income: 20000,
   },
   {
-    first_name: "Frank",
-    last_name: "Reynolds",
+    firstName: "Frank",
+    lastName: "Reynolds",
     email: "frank@paddys.com",
     age: 40,
     income: 120000,
   },
   {
-    first_name: "Charlie",
-    last_name: "Kelly",
+    firstName: "Charlie",
+    lastName: "Kelly",
     email: "charlie@paddys.com",
     age: 34,
     income: 500,
