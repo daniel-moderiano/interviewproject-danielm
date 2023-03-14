@@ -5,6 +5,7 @@ import "../styles/Form.css";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import { Person } from "../types";
+import { useAddPersonMutation } from "../services/backendApi";
 
 const StyledButton = styled(Button)(({ theme }) => ({
   [theme.breakpoints.up("sm")]: {
@@ -16,6 +17,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
 }));
 
 const Form = (props: React.FormHTMLAttributes<HTMLFormElement>) => {
+  const [addPerson] = useAddPersonMutation();
   const [formData, setFormData] = React.useState<Person>({
     firstName: "",
     lastName: "",
@@ -30,6 +32,24 @@ const Form = (props: React.FormHTMLAttributes<HTMLFormElement>) => {
       ...prevData,
       [name]: value,
     }));
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    try {
+      await addPerson(formData).unwrap();
+
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        age: "",
+        income: "",
+      });
+    } catch {
+      console.error("An error occurred");
+    }
   };
 
   return (
@@ -50,7 +70,7 @@ const Form = (props: React.FormHTMLAttributes<HTMLFormElement>) => {
       >
         All fields marked an asterisk (*) are required
       </Typography>
-      <form className="form" {...props}>
+      <form className="form" {...props} onSubmit={handleSubmit}>
         <TextField
           label="First Name"
           variant="outlined"

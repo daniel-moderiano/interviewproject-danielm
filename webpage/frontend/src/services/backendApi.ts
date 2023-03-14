@@ -6,13 +6,23 @@ import { Person } from "../types";
 export const backendApi = createApi({
   reducerPath: "backendApi",
   baseQuery: fetchBaseQuery({ baseUrl: "http://127.0.0.1:8000/api/" }),
-  endpoints: (builder) => ({
-    getAllPeople: builder.query<Person[], void>({
+  tagTypes: ["People"],
+  endpoints: (build) => ({
+    getAllPeople: build.query<Person[], void>({
       query: () => "people/",
+      providesTags: () => [{ type: "People" }],
+    }),
+    addPerson: build.mutation({
+      query: (body: Person) => ({
+        url: "people/",
+        method: "POST",
+        body,
+      }),
+      invalidatesTags: ["People"],
     }),
   }),
 });
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetAllPeopleQuery } = backendApi;
+export const { useGetAllPeopleQuery, useAddPersonMutation } = backendApi;
