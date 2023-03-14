@@ -23,6 +23,7 @@ The directory structure is planned as follows:
     ├── backend/
     │   └── api/
     └── frontend/
+        └── src/
 
 ```
 

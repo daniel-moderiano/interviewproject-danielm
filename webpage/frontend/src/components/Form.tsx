@@ -1,11 +1,11 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import "../styles/Form.css";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import { Person } from "../types";
 import { useAddPersonMutation } from "../services/backendApi";
+import "../styles/Form.css";
 
 const StyledButton = styled(Button)(({ theme }) => ({
   [theme.breakpoints.up("sm")]: {
@@ -16,7 +16,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
   alignSelf: "flex-start",
 }));
 
-const Form = (props: React.FormHTMLAttributes<HTMLFormElement>) => {
+const Form = () => {
   const [addPerson] = useAddPersonMutation();
   const [formData, setFormData] = React.useState<Person>({
     firstName: "",
@@ -26,7 +26,7 @@ const Form = (props: React.FormHTMLAttributes<HTMLFormElement>) => {
     income: "",
   });
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -34,7 +34,7 @@ const Form = (props: React.FormHTMLAttributes<HTMLFormElement>) => {
     }));
   };
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     try {
@@ -71,50 +71,44 @@ const Form = (props: React.FormHTMLAttributes<HTMLFormElement>) => {
       >
         All fields marked an asterisk (*) are required
       </Typography>
-      <form className="form" {...props} onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleFormSubmit}>
         <TextField
           label="First Name"
-          variant="outlined"
           required
-          fullWidth
           value={formData.firstName}
           name="firstName"
-          onChange={handleChange}
+          onChange={handleInputChange}
         />
         <TextField
           label="Last Name"
-          variant="outlined"
           required
           value={formData.lastName}
           name="lastName"
-          onChange={handleChange}
+          onChange={handleInputChange}
         />
         <TextField
           label="Email"
-          variant="outlined"
           type="email"
           required
           value={formData.email}
           name="email"
-          onChange={handleChange}
+          onChange={handleInputChange}
         />
         <TextField
           label="Age"
-          variant="outlined"
           type="number"
           required
           value={formData.age}
           name="age"
-          onChange={handleChange}
+          onChange={handleInputChange}
         />
         <TextField
           label="Income"
-          variant="outlined"
           type="number"
           required
           value={formData.income}
           name="income"
-          onChange={handleChange}
+          onChange={handleInputChange}
         />
         <StyledButton type="submit" variant="contained">
           Submit

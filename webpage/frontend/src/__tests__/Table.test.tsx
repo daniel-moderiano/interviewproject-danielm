@@ -1,8 +1,8 @@
 import { Provider } from "react-redux";
-import Table from "../components/Table";
 import { render, screen } from "@testing-library/react";
 import { store } from "../store";
 import { mockPeopleData } from "../mocks/handlers";
+import Table from "../components/Table";
 
 const expectedTableNames = ["Name", "Age", "Email", "Income"];
 

@@ -52,11 +52,10 @@ const Table = () => {
           boxShadow:
             "0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)",
           borderRadius: "6px",
-          width: "100%",
           maxHeight: "611.5px",
         }}
       >
-        <MaterialTable stickyHeader>
+        <MaterialTable stickyHeader aria-label="People">
           <TableHead>
             <TableRow>
               <StyledTableCell>Name</StyledTableCell>

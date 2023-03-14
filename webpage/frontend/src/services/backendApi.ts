@@ -17,7 +17,7 @@ export const backendApi = createApi({
         method: "POST",
         body,
       }),
-      // Required to involidate the API cache on successful mutation
+      // Required to invalidate the API cache on successful mutation
       invalidatesTags: ["People"],
     }),
   }),

@@ -1,3 +1,4 @@
+// Number and string types are supported to allow smoother interaction with number HTML inputs
 export type Person = {
   firstName: string;
   lastName: string;
