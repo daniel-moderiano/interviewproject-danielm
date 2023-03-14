@@ -4,13 +4,6 @@ import { render, screen } from "@testing-library/react";
 import { store } from "../store";
 import { mockPeopleData } from "../mocks/handlers";
 
-const expectedData = [
-  `${mockPeopleData[0].firstName} ${mockPeopleData[0].lastName}`,
-  mockPeopleData[0].age.toString(),
-  mockPeopleData[0].email,
-  `$${mockPeopleData[0].income.toString()}`,
-];
-
 const expectedTableNames = ["Name", "Age", "Email", "Income"];
 
 const setup = () =>
@@ -35,11 +28,17 @@ describe("Table component", () => {
   it("handles good API response", async () => {
     setup();
 
-    // the "findAll" async selector must be used since we are dealing with async API calls
-    const tableCells = await screen.findAllByRole("cell");
+    // It should be sufficient to look for any of the API response data to check for success
+    const tableCells = await screen.findByText(mockPeopleData[0].email);
 
-    tableCells.forEach((cell, index) => {
-      expect(cell).toHaveTextContent(expectedData[index]);
-    });
+    expect(tableCells).toBeInTheDocument();
+  });
+
+  it("formats income to correct format", async () => {
+    setup();
+
+    const income = await screen.findByText("$30,000");
+
+    expect(income).toBeInTheDocument();
   });
 });

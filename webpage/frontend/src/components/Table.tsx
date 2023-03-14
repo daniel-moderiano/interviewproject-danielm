@@ -27,6 +27,13 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
+// Format 1000 as $1,000, no decimals
+const formatter = new Intl.NumberFormat("en-AU", {
+  style: "currency",
+  currency: "AUD",
+  maximumFractionDigits: 0,
+});
+
 const Table = () => {
   const { data, isLoading, error } = useGetAllPeopleQuery();
 
@@ -66,7 +73,9 @@ const Table = () => {
                 </StyledTableCell>
                 <StyledTableCell align="left">{person.age}</StyledTableCell>
                 <StyledTableCell align="left">{person.email}</StyledTableCell>
-                <StyledTableCell align="left">${person.income}</StyledTableCell>
+                <StyledTableCell align="left">
+                  {formatter.format(Number(person.income))}
+                </StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>
