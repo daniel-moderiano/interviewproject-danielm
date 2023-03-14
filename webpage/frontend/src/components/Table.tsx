@@ -5,43 +5,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { styled } from "@mui/material/styles";
-import { Person } from "../types";
 import { useGetAllPeopleQuery } from "../services/backendApi";
-
-type TableProps = {
-  people: Person[];
-};
-
-const dummyData = [
-  {
-    firstName: "Dennis",
-    lastName: "Reynolds",
-    email: "dennis@paddys.com",
-    age: 40,
-    income: 30000,
-  },
-  {
-    firstName: "Deandra",
-    lastName: "Reynolds",
-    email: "dee@paddys.com",
-    age: 38,
-    income: 20000,
-  },
-  {
-    firstName: "Frank",
-    lastName: "Reynolds",
-    email: "frank@paddys.com",
-    age: 40,
-    income: 120000,
-  },
-  {
-    firstName: "Charlie",
-    lastName: "Kelly",
-    email: "charlie@paddys.com",
-    age: 34,
-    income: 500,
-  },
-];
+import { Person } from "../types";
 
 const StyledTableCell = styled(TableCell)(() => ({
   [`&.${tableCellClasses.head}`]: {
@@ -63,7 +28,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 const Table = () => {
-  const { data: people, isLoading, error } = useGetAllPeopleQuery();
+  const { data, isLoading, error } = useGetAllPeopleQuery();
 
   if (error) {
     return <div>Oh no, there was an error</div>;
@@ -73,7 +38,7 @@ const Table = () => {
     return <div>Loading...</div>;
   }
 
-  if (people) {
+  if (data) {
     return (
       <TableContainer
         sx={{
@@ -94,7 +59,7 @@ const Table = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {people.map((person) => (
+            {data.map((person: Person) => (
               <StyledTableRow key={person.email}>
                 <StyledTableCell>
                   {person.firstName} {person.lastName}

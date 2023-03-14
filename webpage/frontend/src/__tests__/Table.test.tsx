@@ -24,6 +24,7 @@ describe("Table component", () => {
   it("has correct table headings", async () => {
     setup();
 
+    // the "findAll" async selector must be used since we are dealing with async API calls
     const tableHeaders = await screen.findAllByRole("columnheader");
 
     tableHeaders.forEach((header, index) => {
@@ -34,6 +35,7 @@ describe("Table component", () => {
   it("handles good API response", async () => {
     setup();
 
+    // the "findAll" async selector must be used since we are dealing with async API calls
     const tableCells = await screen.findAllByRole("cell");
 
     tableCells.forEach((cell, index) => {

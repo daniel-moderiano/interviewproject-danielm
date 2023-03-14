@@ -30,13 +30,15 @@ body,
 .header {
   padding: 1rem 0;
   text-align: center;
-  background-color: aliceblue;
+  background-color: #1976d2;
+  color: #ffffff;
   width: 100%;
 }
 
 .footer {
   text-align: center;
-  background-color: aliceblue;
+  background-color: #1976d2;
+  color: #ffffff;
   width: 100%;
   padding: 1rem 0;
 }

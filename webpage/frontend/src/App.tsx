@@ -17,7 +17,7 @@ function App() {
       </main>
       <footer className="footer">
         <Typography variant="subtitle1" component="p">
-          &copy; Daniel Moderiano 2023
+          &copy; Footer
         </Typography>
       </footer>
     </div>
