@@ -1,35 +1,40 @@
+import { Provider } from "react-redux";
 import Table from "../components/Table";
 import { render, screen } from "@testing-library/react";
+import { store } from "../store";
+import { mockPeopleData } from "../mocks/handlers";
 
-const dummyData = [
-  {
-    firstName: "Dennis",
-    lastName: "Reynolds",
-    email: "dennis@paddys.com",
-    age: 40,
-    income: 30000,
-  },
+const expectedData = [
+  `${mockPeopleData[0].firstName} ${mockPeopleData[0].lastName}`,
+  mockPeopleData[0].age.toString(),
+  mockPeopleData[0].email,
+  `$${mockPeopleData[0].income.toString()}`,
 ];
-
-const expectedData = ["Dennis Reynolds", "40", "dennis@paddys.com", "$30000"];
 
 const expectedTableNames = ["Name", "Age", "Email", "Income"];
 
-describe("Table component", () => {
-  it("has correct table headings", () => {
-    render(<Table people={dummyData} />);
+const setup = () =>
+  render(
+    <Provider store={store}>
+      <Table />
+    </Provider>
+  );
 
-    const tableHeaders = screen.getAllByRole("columnheader");
+describe("Table component", () => {
+  it("has correct table headings", async () => {
+    setup();
+
+    const tableHeaders = await screen.findAllByRole("columnheader");
 
     tableHeaders.forEach((header, index) => {
       expect(header).toHaveTextContent(expectedTableNames[index]);
     });
   });
 
-  it("renders all person data correctly", () => {
-    render(<Table people={dummyData} />);
+  it("handles good API response", async () => {
+    setup();
 
-    const tableCells = screen.getAllByRole("cell");
+    const tableCells = await screen.findAllByRole("cell");
 
     tableCells.forEach((cell, index) => {
       expect(cell).toHaveTextContent(expectedData[index]);
