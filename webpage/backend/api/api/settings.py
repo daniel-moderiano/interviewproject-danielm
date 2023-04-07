@@ -107,11 +107,13 @@ WSGI_APPLICATION = 'api.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'HOST': os.getenv('DB_HOST'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'ENGINE'  : 'django.db.backends.mysql',  
+        'NAME'    : 'mytestdb',                  
+        'USER'    : 'root',                     
+        'PASSWORD': 'mypass',
+        # Use the WSL IP address provided in Windows' ipconfig output, as this is where the DB is hosted 
+        'HOST'    : '172.31.64.1',                
+        'PORT'    : '3306',
     }
 }
 

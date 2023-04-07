@@ -1,6 +1,13 @@
 version: "3.9"
+volumes:
+  data:
 services:
-  database:
-    build: .
+  db:
+    image: cytopia/mariadb-5.5
+    environment:
+      - MYSQL_ROOT_PASSWORD=mypass
+      - MYSQL_ROOT_HOST=%
+    volumes:
+      - data:/var/lib/mysql
     ports:
       - "3306:3306"
