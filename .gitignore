@@ -1,6 +1,8 @@
 hello-world-app/.venv
 webpage/backend/.venv
 webpage/backend/.env
+backend/.venv
+backend/.env
 
 # Logs
 webpage/frontend/logs
@@ -26,3 +28,4 @@ webpage/frontend/*.ntvs*
 webpage/frontend/*.njsproj
 webpage/frontend/*.sln
 webpage/frontend/*.sw?
+

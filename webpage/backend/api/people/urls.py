@@ -1,6 +1,6 @@
-from django.urls import path
+from django.urls import re_path
 from people.views import PersonListCreate
 
 urlpatterns = [
-    path('api/people/', PersonListCreate.as_view()),
+    re_path('api/people/', PersonListCreate.as_view()),
 ]
