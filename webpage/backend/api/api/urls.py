@@ -1,5 +1,5 @@
-from django.urls import re_path, include
+from django.urls import path, include
 
 urlpatterns = [
-    re_path('', include('people.urls')),
+    path('', include('people.urls')),
 ]
