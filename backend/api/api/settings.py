@@ -81,6 +81,7 @@ REST_FRAMEWORK = {
 ROOT_URLCONF = 'api.urls'
 
 # SECURITY WARNING: switch to a single allowed origin in production!
+# The wording of this setting changes in more recent corsheaders versions
 CORS_ORIGIN_ALLOW_ALL = True
 
 TEMPLATES = [
