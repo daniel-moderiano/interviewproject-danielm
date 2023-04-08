@@ -28,15 +28,16 @@ class PersonListCreateTest(TestCase):
 
     def test_adds_a_person(self):
         response = self.client.post(
-            '/api/people/', 
+            "/api/people/", 
             {
-            'first_name': 'Jane',
-            'last_name': 'Doe',
-            'email': "jane@gmail.com",
-            'age': 24,
-            'income': 50000
+              "first_name": "Jane",
+              "last_name": "Doe",
+              "email": "jane@gmail.com",
+              "age": 24,
+              "income": 50000
             }, 
-            content_type='application/json'
+            # Do not use content-type="application/json" here, it will convert to single quote strings!
+            format="json"
         )
         self.assertEqual(response.status_code, 201)
 
@@ -44,12 +45,12 @@ class PersonListCreateTest(TestCase):
         response = self.client.post(
             '/api/people/', 
             {
-            'firstName': 'Jim',
-            'lastName': 'Doe',
-            'email': "jim@gmail.com",
-            'age': 24,
-            'income': 50000
+            "firstName": "Jim",
+            "lastName": "Doe",
+            "email": "jim@gmail.com",
+            "age": 24,
+            "income": 50000
             }, 
-            content_type='application/json'
+            format="json"
         )
         self.assertEqual(response.status_code, 201)
