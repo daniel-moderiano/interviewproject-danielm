@@ -1,6 +1,7 @@
 hello-world-app/.venv
 webpage/backend/.venv
 webpage/backend/.env
+webpage/backend/data
 backend/.venv
 backend/.env
 
