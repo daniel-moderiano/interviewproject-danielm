@@ -19,6 +19,6 @@ services:
     build: ./frontend
     container_name: frontend_container
     ports:
-      - "3000:5173"
+      - "3000:3000"
     stdin_open: true
     tty: true
