@@ -46,11 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'people',
-<<<<<<< Updated upstream
     'corsheaders'
-=======
-    'corsheaders',
->>>>>>> Stashed changes
 ]
 
 MIDDLEWARE = [
