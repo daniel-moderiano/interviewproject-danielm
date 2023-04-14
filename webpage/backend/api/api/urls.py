@@ -1,5 +1,6 @@
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include('people.urls')),
+    path('api/', include('people.urls')),
+    path('', include('react.urls')),
 ]

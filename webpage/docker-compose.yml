@@ -15,10 +15,3 @@ services:
     restart: always
     volumes:
       - ./backend/data/mysql/db:/var/lib/mysql
-  frontend:
-    build: ./frontend
-    container_name: frontend_container
-    ports:
-      - "3000:3000"
-    stdin_open: true
-    tty: true
