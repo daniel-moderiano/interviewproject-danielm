@@ -1,18 +1,11 @@
-# from django.urls import path, include
-
-# urlpatterns = [
-#     path('', include('people.urls')),
-# ]
-
 from django.contrib import admin
-from django.urls import path, re_path
+from django.urls import path, include
 from django.shortcuts import render
 
 def render_react(request):
     return render(request, "index.html")
-  
+
 urlpatterns = [
-  path("admin/", admin.site.urls),
-  re_path(r"^$", render_react),
-  re_path(r"^(?:.*)/?$", render_react),
+    path('api/', include('people.urls')),
+    path('', render_react),
 ]
