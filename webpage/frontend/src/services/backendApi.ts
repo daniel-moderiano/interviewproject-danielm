@@ -3,7 +3,7 @@ import { Person } from "../types";
 
 export const backendApi = createApi({
   reducerPath: "backendApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://127.0.0.1:8000/api/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "http://54.196.143.87:8000/api/" }),
   tagTypes: ["People"],
   endpoints: (build) => ({
     getAllPeople: build.query<Person[], void>({
