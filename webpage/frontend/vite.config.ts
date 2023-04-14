@@ -9,7 +9,8 @@ export default defineConfig({
     port: 3000,
   },
   build: {
-    outDir: "../backend/api/build/static",
+    outDir: "../backend/api/build",
     emptyOutDir: true,
+    assetsDir: "static",
   },
 });

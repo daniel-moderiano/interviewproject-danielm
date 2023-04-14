@@ -38,6 +38,8 @@ const Table = () => {
   const { data, isLoading, error } = useGetAllPeopleQuery();
 
   if (error) {
+    console.log(error);
+
     return <div>Oh no, there was an error</div>;
   }
 
