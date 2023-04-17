@@ -50,3 +50,10 @@ After completing the initial tasks above, there are some ways to extend the proj
     - React 17
     - Redux Toolkit 1.8
     - Material UI 5.5
+- Become familiar with Docker - know the essential operations. Aim to host parts of the project in containers:
+    - Host MariaDB 5.5 in a container, and have the project interact with this
+    - Host the Django backend API in a separate container, and have it communicate with the containerised DB
+    - Host the React frontend in a separate container, and have it communicate with the backend API
+    - Use Docker compose to coordinate the various containers
+- Add routes to the Django backend project to serve the frontend application/pages
+- Host the entire project (Django serving React frontend + MariaDB container) on CentOS 7, and serve with Apache
