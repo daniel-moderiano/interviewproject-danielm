@@ -34,3 +34,19 @@ The directory structure is planned as follows:
 This task involves developing unit tests for the frontend and backend that make up the webpage in Task 2 above.
 
 These unit tests will be included within the relevant directories described in Task 2 above.
+
+
+### Additional tasks
+
+After completing the initial tasks above, there are some ways to extend the project to further explore the tech stack involved. The goals of these exploration tasks are:
+- Downgrade the project to use the following versions:
+    - MariaDB 5.5
+    - Django 2.0
+    - Docker v20+
+    - Python 3.8
+    - CentOS 7
+    - Apache 2.4
+    - TypeScript 4.9
+    - React 17
+    - Redux Toolkit 1.8
+    - Material UI 5.5
