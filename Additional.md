@@ -56,3 +56,8 @@ Conceptually this process is simple - first build the frontend app using an `npm
 The process was extremely difficult in practice, I tried various plugins to no success. In the end this [article](https://medium.com/codex/deploying-react-through-djangos-static-files-part-1-dev-setup-8a3a7b93c809) introduced me to Whitenoise as a static file server within python/django, and implementing this with Vite in place of CRA was no problem at all. 
 
 All that was then needed was a new Django app with a catch all route that served the React frontend, and then a simple modification to the React API calls such that they now targetted the IP of the host server for requests (still using the `api/` Django routes).
+
+## Architecture
+
+![interview-project](https://user-images.githubusercontent.com/59184832/232649992-7926b9ff-5e3e-4f4d-8784-24f31ca1e157.png)
+
