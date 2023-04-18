@@ -57,3 +57,9 @@ After completing the initial tasks above, there are some ways to extend the proj
     - Use Docker compose to coordinate the various containers
 - Add routes to the Django backend project to serve the frontend application/pages
 - Host the entire project (Django serving React frontend + MariaDB container) on CentOS 7, and serve with Apache
+
+### Questions
+
+- How does the simple single-server/container achitecture differ to the production architecture? Are we running multiple local servers with many containers on each?
+- Is Apache hosting the Django project in production, or acting as a reverse proxy?
+- Does Django serve the frontend in production using a static file server? Why was this chosen as opposed to a separate frontend application?
